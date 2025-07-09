@@ -1,0 +1,1 @@
+CREATE EXTENSION IF NOT EXISTS vector; -- This will create the vector extension in the postgres database
