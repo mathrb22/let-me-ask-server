@@ -13,6 +13,15 @@ await seed(db, schema).refine((f) => {
       columns: {
         name: f.companyName(),
         description: f.loremIpsum(),
+        createdAt: f.default({ defaultValue: new Date() }),
+      },
+    },
+    questions: {
+      count: 20,
+      columns: {
+        question: f.loremIpsum(),
+        answer: f.loremIpsum(),
+        createdAt: f.default({ defaultValue: new Date() }),
       },
     },
   };
