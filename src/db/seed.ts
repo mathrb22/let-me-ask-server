@@ -13,7 +13,11 @@ await seed(db, schema).refine((f) => {
       columns: {
         name: f.companyName(),
         description: f.loremIpsum(),
-        createdAt: f.default({ defaultValue: new Date() }),
+        createdAt: f.date({
+          // min date: 3 weeks ago from today's date
+          minDate: new Date(Date.now() - 3 * 7 * 24 * 60 * 60 * 1000),
+          maxDate: new Date(),
+        }),
       },
     },
     questions: {
@@ -21,7 +25,9 @@ await seed(db, schema).refine((f) => {
       columns: {
         question: f.loremIpsum(),
         answer: f.loremIpsum(),
-        createdAt: f.default({ defaultValue: new Date() }),
+        createdAt: f.date({
+          maxDate: new Date(),
+        }),
       },
     },
   };
