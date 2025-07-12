@@ -35,3 +35,4 @@ jspm_packages/
 .vscode/
 *.swp
 .DS_Store
+copilot-instructions.md
