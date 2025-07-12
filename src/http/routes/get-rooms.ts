@@ -11,7 +11,7 @@ export const getRoomsRoute: FastifyPluginCallbackZod = (app) => {
         name: schema.rooms.name,
         description: schema.rooms.description,
         createdAt: schema.rooms.createdAt,
-        questionCount: count(schema.questions.id),
+        questionsCount: count(schema.questions.id),
       })
       .from(schema.rooms)
       .leftJoin(schema.questions, eq(schema.questions.roomId, schema.rooms.id))
