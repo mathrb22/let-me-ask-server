@@ -15,6 +15,13 @@
       "when": 1752197264287,
       "tag": "0001_many_molly_hayes",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1752381812352,
+      "tag": "0002_keen_zaran",
+      "breakpoints": true
     }
   ]
 }
