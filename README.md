@@ -37,18 +37,18 @@
 
 ## 📃 Sobre
 
-Este repositório contém o código-fonte do **backend** do projeto **Let me ask**, desenvolvido durante a **NLW Agents (Next Level Week)** da [Rocketseat](https://github.com/Rocketseat). O projeto é uma API moderna construída com **Node.js**, **TypeScript** e **Fastify**, utilizando **PostgreSQL** com extensão **pgvector** para suporte a vetores e operações de IA.
+Este repositório contém o código-fonte do **backend** do projeto **Let me ask**, desenvolvido durante a **NLW Agents (Next Level Week)** da [Rocketseat](https://github.com/Rocketseat). O projeto é uma API moderna construída com **Node.js**, **TypeScript** e **Fastify**, utilizando **PostgreSQL** com a extensão **pgvector** para suporte a vetores e operações de IA.
 
-O sistema integra **agentes de IA**, **busca semântica** e **processamento de dados vetoriais** para fornecer respostas automáticas às perguntas dos participantes durante transmissões ao vivo. Com base na transcrição em tempo real da apresentação, a IA processa e armazena vetores semânticos dos assuntos abordados, permitindo que o sistema utilize busca semântica para verificar se perguntas já foram respondidas e fornecer respostas contextualizada automaticamente.
+O sistema integra **agentes de IA**, **busca semântica** e **processamento de dados vetoriais** para fornecer respostas automáticas a perguntas de participantes durante transmissões ao vivo. Através do upload de trechos de áudio da transmissão, a IA realiza a transcrição, gera vetores semânticos do conteúdo e os armazena. Isso permite que o sistema utilize busca semântica para verificar se perguntas já foram respondidas e fornecer respostas contextualizadas automaticamente.
 
 ## 🎯 Objetivo
 
-Criar uma solução inteligente para transmissões ao vivo onde perguntas dos participantes são respondidas automaticamente através de inteligência artificial, utilizando:
+Criar uma solução inteligente para transmissões ao vivo onde perguntas dos participantes são respondidas automaticamente por uma inteligência artificial, utilizando:
 
-- **Transcrição em tempo real** de transmissões ao vivo
-- **Processamento de dados vetoriais** para armazenar contexto semântico
-- **Busca semântica** para identificar se perguntas já foram respondidas
-- **Agente de IA** para fornecer respostas contextualmente relevantes
+- **Upload e transcrição** de trechos de áudio de transmissões ao vivo.
+- **Geração e processamento de dados vetoriais** para armazenar o contexto semântico do que foi dito.
+- **Busca semântica** para identificar se perguntas já foram respondidas com base no conteúdo transcrito.
+- **Agente de IA** para fornecer respostas contextualmente relevantes e precisas.
 
 ## 🚀 Tecnologias e ferramentas
 
@@ -68,7 +68,7 @@ Criar uma solução inteligente para transmissões ao vivo onde perguntas dos pa
     </td>
     <td align="center" width="90">
       <a href="https://fastify.dev/" target="_blank" rel="noopener noreferrer">
-        <img width="60" src="https://fastify.dev/img/logos/fastify-white.svg" alt="Fastify" title="Fastify"/>
+        <img width="60" src="https://images.seeklogo.com/logo-png/39/1/fastify-logo-png_seeklogo-399412.png" alt="Fastify" title="Fastify"/>
       </a>
       <span>Fastify</span>
     </td>
@@ -98,11 +98,11 @@ Criar uma solução inteligente para transmissões ao vivo onde perguntas dos pa
       </a>
       <span>Zod</span>
     </td>
-    <td align="center" width="90">
-      <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">
-        <img width="60" src="https://user-images.githubusercontent.com/25181517/117207330-263ba280-adf4-11eb-9b97-0ac5b40bc3be.png" alt="Docker" title="Docker"/>
+    <td align="center" width="100">
+      <a href="https://ai.google.dev/" target="_blank" rel="noopener noreferrer">
+        <img width="60" src="https://play-lh.googleusercontent.com/bTpNtZ6rYYX2SeI-wC4cnr7MJnOh2hjtgYu3UIrSxE09lM3GPl_Uhf9_Ih2Smje2bc0V=w240-h480-rw" alt="Google Gemini API" title="Google Gemini API"/>
       </a>
-      <span>Docker</span>
+      <span>Google Gemini API</span>
     </td>
     <td align="center" width="90">
       <a href="https://biomejs.dev/" target="_blank" rel="noopener noreferrer">
@@ -110,139 +110,143 @@ Criar uma solução inteligente para transmissões ao vivo onde perguntas dos pa
       </a>
       <span>Biome</span>
     </td>
+    <td align="center" width="90">
+      <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">
+        <img width="60" src="https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxvHMT0riO5Ze2r4kAINc_2Sf3i_lhd_UyN3p_M0zbCTnlfDqa8Z.oTShpYDF75lO38ORwn3qN2SS1GkJALG9t8s-&format=source" alt="Docker" title="Docker"/>
+      </a>
+      <span>Docker</span>
+    </td>
   </tr>
 </table>
 
 ## ✨ Features
 
-A API oferece as seguintes funcionalidades:
+- **Gestão de Salas**:
 
-### Funcionalidades de IA (em desenvolvimento)
+  - Criação e listagem de salas para eventos.
+  - Detalhamento de informações de uma sala específica.
 
-🚧 **Sistema de salas inteligentes:** Gerenciamento de salas com integração de IA<br/>
-🚧 **Transcrição em tempo real:** Captura e processamento de áudio de transmissões ao vivo<br/>
-🚧 **Processamento vetorial:** Armazenamento de dados semânticos para busca eficiente<br/>
-🚧 **Busca semântica:** Identificação inteligente de respostas já fornecidas<br/>
-🚧 **Agentes de IA:** Respostas automáticas contextualmente relevantes<br/>
+- **Gestão de Perguntas**:
 
-### Salas (Rooms)
+  - Envio de perguntas para uma sala.
+  - Listagem de perguntas de uma sala.
 
-✅ `GET /rooms`: Obtém a lista de todas as salas ordenadas por data de criação.</br>
-✅ `GET /health`: Endpoint de verificação de saúde da API.</br>
+- **Processamento de Áudio com IA**:
 
-### Recursos do Sistema
+  - **Upload de Áudio**: Endpoint para enviar trechos de áudio (`chunks`) de uma transmissão ao vivo para uma sala específica.
+  - **Transcrição Automática**: O áudio enviado é automaticamente transcrito para texto utilizando a API do **Google Gemini**.
+  - **Geração de Vetores Semânticos**: A transcrição é processada para gerar _embeddings_ (vetores semânticos) que capturam o significado do texto.
+  - **Armazenamento**: A transcrição e os vetores são salvos no banco de dados, associados à sala correspondente.
+  - **Busca Semântica**: ao criar uma nova pergunta, o sistema usará a busca por similaridade no banco de vetores para encontrar os trechos da transcrição mais relevantes e, assim, verificar se a pergunta já foi respondida.
 
-✅ **Banco de dados PostgreSQL** com extensão **pgvector** para operações vetoriais</br>
-✅ **Migrations automáticas** com Drizzle ORM</br>
-✅ **Seed de dados** para desenvolvimento</br>
-✅ **Docker Compose** para ambiente de desenvolvimento</br>
-✅ **Validação de tipos** com Zod e fastify-type-provider-zod</br>
-✅ **Formatação de código** com Biome</br>
-✅ **CORS** configurado para desenvolvimento frontend</br>
-✅ **Hot reload** em desenvolvimento</br>
+## 💿 Instalação e execução
 
-## 🔧 Instalação e execução
+Siga os passos abaixo para configurar e executar o projeto em seu ambiente de desenvolvimento.
 
-Para baixar o código-fonte do projeto em sua máquina, primeiramente terá que ter instalado o [**Git**](https://git-scm.com/).
-Com o Git instalado, em seu terminal execute o seguinte comando:
+**Pré-requisitos:**
 
-```bash
-git clone https://github.com/mathrb22/let-me-ask-server.git
-cd nlw-agents/server
-```
+- [Node.js](https://nodejs.org/en/) (versão 20 ou superior)
+- [Docker](https://www.docker.com/get-started) e [Docker Compose](https://docs.docker.com/compose/install/)
+- Uma chave de API do [Google Gemini](https://aistudio.google.com/app/apikey)
 
-### Pré-requisitos
+**Passos:**
 
-- [**Node.js**](https://nodejs.org/en/) (versão 18 ou superior)
-- [**Docker**](https://www.docker.com/) e [**Docker Compose**](https://docs.docker.com/compose/)
+1. **Clone o repositório:**
 
-### Instalação das dependências
+   ```bash
+   git clone https://github.com/mathrb22/let-me-ask-server.git
+   cd let-me-ask-server
+   ```
 
-```bash
-npm install
-```
+2. **Instale as dependências:**
 
-### Configuração do ambiente
+   ```bash
+   npm install
+   ```
 
-1. Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+3. **Configure as variáveis de ambiente:**
 
-```env
-PORT=3333
-DATABASE_URL="postgresql://docker:docker@localhost:5432/agents"
-```
+   - Crie um arquivo `.env` na raiz do projeto, copiando o exemplo de `.env.example`.
+     ```bash
+     cp .env.example .env
+     ```
+   - Abra o arquivo `.env` e preencha as variáveis:
 
-### Executando o banco de dados
+     ```env
+     # Porta da aplicação
+     PORT=3333
 
-Inicie o container PostgreSQL com pgvector:
+     # URL de conexão com o banco de dados PostgreSQL
+     DATABASE_URL="postgresql://docker:docker@localhost:5432/agents"
 
-```bash
-docker-compose up -d
-```
+     # Sua chave de API do Google Gemini
+     GEMINI_API_KEY="SUA_CHAVE_DE_API_AQUI"
+     ```
 
-### Migrações do banco de dados
+4. **Inicie o banco de dados com Docker:**
 
-Execute as migrações para criar as tabelas:
+   - O comando abaixo irá iniciar um contêiner PostgreSQL com a extensão `pgvector`.
 
-```bash
-npm run db:migrate
-```
+   ```bash
+   docker-compose up -d
+   ```
 
-### Seed do banco de dados (opcional)
+5. **Execute as migrações do banco de dados:**
 
-Para popular o banco com dados de exemplo:
+   - Este comando aplicará as tabelas e configurações necessárias ao banco.
 
-```bash
-npm run db:seed
-```
+   ```bash
+   npm run db:migrate
+   ```
 
-### Executando o projeto
+6. **Execute o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
 
-#### Modo desenvolvimento (com hot reload):
+A API estará disponível em `http://localhost:3333`.
 
-```bash
-npm run dev
-```
+### Comandos úteis do banco de dados
 
-#### Modo produção:
+- **Gerar uma nova migração** (após alterar um schema em `src/db/schema/`):
+  ```bash
+  npm run db:generate
+  ```
+- **Abrir o Drizzle Studio** (para visualizar e gerenciar o banco de dados):
+  ```bash
+  npm run db:studio
+  ```
 
-```bash
-npm start
-```
+## 📂 Estrutura do projeto
 
-A API estará disponível em http://localhost:3333.
-
-### Scripts disponíveis
-
-- `npm run dev` - Executa em modo desenvolvimento com hot reload
-- `npm start` - Executa em modo produção
-- `npm run db:studio` - Abre o Drizzle Studio para visualizar o banco
-- `npm run db:generate` - Gera novas migrações
-- `npm run db:migrate` - Executa as migrações pendentes
-- `npm run db:seed` - Popula o banco com dados de exemplo
-
-### Verificando a instalação
-
-Acesse http://localhost:3333/health para verificar se a API está funcionando corretamente.
-
-## 📁 Estrutura do projeto
+O projeto está organizado da seguinte forma:
 
 ```
-server/
-├── docker/
-│   └── setup.sql           # Script de inicialização do PostgreSQL
-├── src/
-│   ├── db/
-│   │   ├── migrations/     # Migrações do banco de dados
-│   │   ├── schema/         # Esquemas das tabelas
-│   │   ├── connection.ts   # Conexão com o banco
-│   │   └── seed.ts         # Script de seed
-│   ├── http/
-│   │   └── routes/         # Rotas da API
-│   ├── env.ts              # Validação de variáveis ambiente
-│   └── server.ts           # Configuração do servidor
-├── docker-compose.yml      # Configuração do Docker
-├── drizzle.config.ts       # Configuração do Drizzle ORM
-└── package.json
+.
+├── drizzle.config.ts   # Configuração do Drizzle ORM
+├── docker-compose.yml  # Configuração do Docker para o banco de dados
+├── package.json
+├── biome.jsonc         # Configuração do Biome (linter e formatter)
+├── tsconfig.json
+└── src/
+    ├── db/
+    │   ├── connection.ts   # Conexão com o banco de dados (Drizzle)
+    │   ├── migrations/     # Arquivos de migração do banco
+    │   └── schema/         # Definições das tabelas do banco (schemas)
+    │       ├── index.ts
+    │       ├── rooms.ts
+    │       ├── questions.ts
+    │       └── audio-chunks.ts
+    ├── http/
+    │   ├── routes/         # Definição das rotas da API
+    │   │   ├── create-room.ts
+    │   │   ├── get-rooms.ts
+    │   │   ├── create-question.ts
+    │   │   └── upload-audio.ts
+    │   └── server.ts       # Arquivo principal do servidor Fastify
+    ├── services/
+    │   └── gemini.ts       # Lógica de integração com a API do Gemini
+    └── env.ts              # Validação de variáveis de ambiente com Zod
 ```
 
 ## 💡 Como contribuir
