@@ -68,7 +68,7 @@ Criar uma solução inteligente para transmissões ao vivo onde perguntas dos pa
     </td>
     <td align="center" width="90">
       <a href="https://fastify.dev/" target="_blank" rel="noopener noreferrer">
-        <img width="60" src="https://images.seeklogo.com/logo-png/39/1/fastify-logo-png_seeklogo-399412.png" alt="Fastify" title="Fastify"/>
+        <img width="60" src="https://avatars.githubusercontent.com/u/24939410?s=280&v=4" alt="Fastify" title="Fastify"/>
       </a>
       <span>Fastify</span>
     </td>
