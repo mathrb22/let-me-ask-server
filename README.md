@@ -66,7 +66,7 @@ Criar uma solução inteligente para transmissões ao vivo onde perguntas dos pa
       </a>
       <span>TypeScript</span>
     </td>
-    <td align="center" width="90">
+    <td align="center" width="100">
       <a href="https://fastify.dev/" target="_blank" rel="noopener noreferrer">
         <img width="60" src="https://avatars.githubusercontent.com/u/24939410?s=280&v=4" alt="Fastify" title="Fastify"/>
       </a>
