@@ -67,12 +67,12 @@ export async function generateAnswer(
   ${question}
 
   INSTRUÇÕES:
-    - Use apenas informações contidas no contexto enviado;
-    - Se a resposta não for encontrada no contexto, apenas responda que não possui informações suficientes para responder à pergunta;
+    // - Use informações contidas no contexto enviado para responder à pergunta;
+    - Se a resposta não for encontrada no contexto, responda que não possui informações suficientes para responder à pergunta;
     - Seja objetivo;
     - Mantenha um tom educativo e profissional;
     - Cite trechos relevantes do contexto, se apropriado.
-    - Se for citar o contexto, use como: conteúdo da aula, utilizando-o como referência para a resposta.
+    - Se for citar o contexto, use como: conteúdo da gravação, utilizando-o como referência para a resposta.
   `.trim();
 
   const response = await gemini.models.generateContent({
