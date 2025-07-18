@@ -1,4 +1,4 @@
-import { desc, eq } from 'drizzle-orm';
+import { and, desc, eq, ilike, or } from 'drizzle-orm';
 import type { FastifyPluginCallbackZod } from 'fastify-type-provider-zod';
 import z from 'zod/v4';
 import { db } from '../../db/connection.ts';
@@ -9,18 +9,22 @@ export const getRoomQuestionsRoute: FastifyPluginCallbackZod = (app) => {
     '/rooms/:roomId/questions',
     {
       schema: {
+        tags: ['Questions'],
+        summary: 'Get room questions with optional search',
         params: z.object({
           roomId: z.string(),
+        }),
+        querystring: z.object({
+          search: z.string().optional(),
         }),
       },
     },
     async (request) => {
       const { roomId } = request.params;
+      const { search } = request.query;
 
-      // Validate roomId format (UUID)
-      if (!roomId) {
-        return;
-      }
+      // Decode URL if needed and validate
+      const decodedSearch = search ? decodeURIComponent(search).trim() : '';
 
       const result = await db
         .select({
@@ -30,7 +34,17 @@ export const getRoomQuestionsRoute: FastifyPluginCallbackZod = (app) => {
           createdAt: schema.questions.createdAt,
         })
         .from(schema.questions)
-        .where(eq(schema.questions.roomId, roomId))
+        .where(
+          decodedSearch
+            ? and(
+                eq(schema.questions.roomId, roomId),
+                or(
+                  ilike(schema.questions.question, `%${decodedSearch}%`),
+                  ilike(schema.questions.answer, `%${decodedSearch}%`)
+                )
+              )
+            : eq(schema.questions.roomId, roomId)
+        )
         .orderBy(desc(schema.questions.createdAt));
 
       return result;
